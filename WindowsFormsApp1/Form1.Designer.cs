@@ -45,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(298, 9);
+            this.label1.Location = new System.Drawing.Point(310, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(246, 55);
             this.label1.TabIndex = 0;
@@ -54,10 +54,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(601, 57);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(590, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 33);
+            this.label2.Size = new System.Drawing.Size(290, 55);
             this.label2.TabIndex = 1;
             this.label2.Text = "Computador";
             this.label2.Visible = false;
@@ -66,9 +66,9 @@
             // 
             this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(410, 473);
+            this.button1.Location = new System.Drawing.Point(311, 473);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(245, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "BINGO";
             this.button1.UseVisualStyleBackColor = true;
@@ -131,15 +131,14 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label8.Location = new System.Drawing.Point(400, 87);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 55);
+            this.label8.Size = new System.Drawing.Size(0, 55);
             this.label8.TabIndex = 8;
-            this.label8.Text = "0";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(31, 473);
+            this.button2.Location = new System.Drawing.Point(311, 175);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 23);
+            this.button2.Size = new System.Drawing.Size(245, 23);
             this.button2.TabIndex = 9;
             this.button2.Text = "COMEÇAR UM JOGO";
             this.button2.UseVisualStyleBackColor = true;

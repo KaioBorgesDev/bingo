@@ -17,3 +17,13 @@ C:\Users\aluno\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.cs
 C:\Users\aluno\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\aluno\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\aluno\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb

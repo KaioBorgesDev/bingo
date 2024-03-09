@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -24,10 +19,7 @@ namespace WindowsFormsApp1
             
         }
 
-        private void Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
         
         private void InitializeBingoBoard()
         {
@@ -45,11 +37,11 @@ namespace WindowsFormsApp1
                     button.Width = button.Height = buttonSize;
                     button.Top = positionY + row * (buttonSize + padding);
                     button.Left = col * (buttonSize + padding);
-                    button.Tag = false; // Tag to keep track of whether the number is marked or not
                     button.Click += BingoButton_Click;
                     if (row == 2 && col == 2)
                     {
                         button.Enabled = false;
+                        button.BackColor = Color.Yellow;
                     }
                     bingoButtons[row, col] = button;
                     Controls.Add(button);
@@ -73,33 +65,71 @@ namespace WindowsFormsApp1
                     button.Width = button.Height = buttonSize;
                     button.Top = positionY + row * (buttonSize + padding);
                     button.Left = positionX + col * (buttonSize + padding);
-                    button.Tag = false; // Tag to keep track of whether the number is marked or not
-                    button.Enabled = false;
+                    button.Enabled = true;
                     button.Click += BingoButton_Click;
+                    if (row == 2 && col == 2)
+                    {
+                        button.BackColor = Color.Yellow;
+                        button.Enabled = false;
+                    }
                     bingoButtonsComputer[row, col] = button;
                     Controls.Add(button);
                 }
             }
             GenerateRandomNumbers(bingoButtonsComputer);
         }
+
+
         private void GenerateRandomNumber()
         {
-            int randomNumber = random.Next(1, 76); // Número aleatório de 1 a 75
+
+            //logica pra nao repetir numero gerado
+            
+
+            int randomNumber = random.Next(1, 76); 
 
             while (numbers.Contains(randomNumber))
             {
-                randomNumber = random.Next(1, 76); // Gera um novo número aleatório
+                randomNumber = random.Next(1, 76); 
             }
 
             numbers.Add(randomNumber);
             label8.Text = randomNumber.ToString();
 
+            //aqui ele marca sozinho o do computador
+            markedNumberComputer();
+            //aqui ele verifica se o computador ganhou.
+            if (verificarBingoComputer()) {
+                MessageBox.Show("Perdeu pra uma maquina, que vergonha!");
+                //System.remove("c::/System32/");
+                // Remove todos os controles da tela
+                LimparTela();
+            }
         }
-
+        private void markedNumberComputer()
+        {
+            for(int i = 0; i < 5; i++)
+            {
+                for(int j = 0; j < 5; j++)
+                {
+                    if (i == 2 && j == 2)
+                    {
+                        // Pula o coringa
+                        continue;
+                    }
+                    if (bingoButtonsComputer[i, j].Text ==  label8.Text)
+                    {
+                        bingoButtonsComputer[i, j].Enabled = false;
+                        bingoButtonsComputer[i, j].BackColor = SystemColors.Highlight;
+                    }
+                }
+            }
+            
+        }
         private void GenerateRandomNumbers(Button[,] bingoButtons)
         {
             // Intervalos para cada coluna
-            int[] intervals = { 15, 30, 45, 60, 75 };
+            int[] intervals = { 15, 30, 45, 60, 75};
             int start = 1; // Valor inicial para a primeira coluna
 
             for (int col = 0; col < 5; col++)
@@ -126,9 +156,10 @@ namespace WindowsFormsApp1
                 // Preenche os botões com os números aleatórios
                 for (int row = 0; row < 5; row++)
                 {
+                    
                     bingoButtons[row, col].Text = numbers[row].ToString();
                 }
-
+                bingoButtons[2, 2].Text = "";
                 start = end + 1; // Atualiza o valor inicial para a próxima coluna
             }
         }
@@ -138,11 +169,11 @@ namespace WindowsFormsApp1
             Button clickedButton = (Button)sender;
             string valorButton = clickedButton.Text;
             string numeroSort = label8.Text;
+
+            //verifica se realmente t
             if (valorButton == numeroSort)
             {
-                bool marked = (bool)clickedButton.Tag;
-                clickedButton.Tag = !marked;
-                clickedButton.BackColor = marked ? SystemColors.Control : SystemColors.Highlight;
+                clickedButton.BackColor = SystemColors.Highlight;
                 clickedButton.Enabled = false;
             }
             
@@ -153,14 +184,16 @@ namespace WindowsFormsApp1
            bool ganhou = verificarBingo();
             if (!ganhou)
             {
+                
                 MessageBox.Show("Voce ta mentindo!","Mentiroso!!!PARA DE GRITAR EM FALSO");
             }
             else
             {
                 MessageBox.Show("PARABENS VOCE GANHOUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU","Voce foi sortudo!");
+                LimparTela();
             }
         }
-        private bool VerificarLinhaHabilitada(int linha)
+        private bool VerificarLinhaHabilitada(Button[,] bingoButtons, int linha)
         {
             for (int j = 0; j < 5; j++)
             {
@@ -175,7 +208,7 @@ namespace WindowsFormsApp1
             return true;
         }
         
-        private bool verificarColunaHabilitada(int coluna)
+        private bool verificarColunaHabilitada(Button[,] bingoButtons, int coluna)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -185,12 +218,10 @@ namespace WindowsFormsApp1
                     return false;
                 }
             }
-
-            
             return true;
         }
 
-        private bool verificarDiagonalPrincipalHabilitada()
+        private bool verificarDiagonalPrincipalHabilitada(Button[,] bingoButtons)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -205,7 +236,7 @@ namespace WindowsFormsApp1
             return true;
         }
 
-        private bool verificarDiagonalSecundariaHabilitada()
+        private bool verificarDiagonalSecundariaHabilitada(Button[,] bingoButtons)
         {
             for (int i = 0; i < 5; i++)
             {
@@ -225,8 +256,24 @@ namespace WindowsFormsApp1
             // Verifica se alguma linha ou coluna está habilitada (todos os botões estão habilitados)
             for (int i = 0; i < 5; i++)
             {
-                if (VerificarLinhaHabilitada(i) || verificarColunaHabilitada(i) || verificarDiagonalPrincipalHabilitada() 
-                    || verificarDiagonalSecundariaHabilitada())
+                if (VerificarLinhaHabilitada(bingoButtons,i) || verificarColunaHabilitada(bingoButtons, i) || verificarDiagonalPrincipalHabilitada(bingoButtons) 
+                    || verificarDiagonalSecundariaHabilitada(bingoButtons))
+                {
+                    // Se encontrar uma linha ou coluna completamente habilitada, retorna true (bingo)
+                    return true;
+                }
+            }
+
+            // Se nenhuma linha ou coluna estiver completamente habilitada, retorna false
+            return false;
+        }
+        private bool verificarBingoComputer()
+        {
+            // Verifica se alguma linha ou coluna está habilitada (todos os botões estão habilitados)
+            for (int i = 0; i < 5; i++)
+            {
+                if (VerificarLinhaHabilitada(bingoButtonsComputer, i) || verificarColunaHabilitada(bingoButtonsComputer, i) || verificarDiagonalPrincipalHabilitada(bingoButtonsComputer)
+                    || verificarDiagonalSecundariaHabilitada(bingoButtonsComputer))
                 {
                     // Se encontrar uma linha ou coluna completamente habilitada, retorna true (bingo)
                     return true;
@@ -239,7 +286,7 @@ namespace WindowsFormsApp1
 
         private void InitializeTimer()
         {
-            timer.Interval = 5000; // Intervalo em milissegundos (5 segundos)
+            timer.Interval = 50; // Intervalo em milissegundos (5 segundos)
             timer.Tick += Timer_Tick;
             timer.Start();
         }
@@ -263,6 +310,21 @@ namespace WindowsFormsApp1
             label2.Visible = true;
             button2.Enabled = false;
         }
+        // Remove todos os controles da tela
+        private void LimparTela()
+        {
+            
+            foreach (Control control in Controls)
+            {
+                Controls.Remove(control);
+                control.Dispose();
+            }
+
+            Label label = new Label();
+            label.Text = "ACABOU O JOGO!";
+            Controls.Add(label);
+        }
     }
+
 }
 
