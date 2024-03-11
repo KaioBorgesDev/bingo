@@ -27,3 +27,10 @@ C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsForm
 C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Administrador\Source\Repos\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\julin\Documents\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\julin\Documents\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\julin\Documents\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\julin\Documents\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+C:\Users\julin\Documents\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\julin\Documents\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\julin\Documents\bingo\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache

@@ -286,7 +286,7 @@ namespace WindowsFormsApp1
 
         private void InitializeTimer()
         {
-            timer.Interval = 50; // Intervalo em milissegundos (5 segundos)
+            timer.Interval = 5000; // Intervalo em milissegundos (5 segundos)
             timer.Tick += Timer_Tick;
             timer.Start();
         }
@@ -316,7 +316,7 @@ namespace WindowsFormsApp1
             
             foreach (Control control in Controls)
             {
-                Controls.Remove(control);
+                control.Remove(control);
                 control.Dispose();
             }
 
@@ -326,5 +326,12 @@ namespace WindowsFormsApp1
         }
     }
 
+    internal class Button
+    {
+    }
+
+    public class Form
+    {
+    }
 }
 
